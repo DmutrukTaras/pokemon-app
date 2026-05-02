@@ -1,0 +1,182 @@
+.page {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  animation: pageFade 320ms ease;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 24px;
+  background: rgba(7, 13, 26, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: floatIn 360ms ease both;
+}
+
+.topBar h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.topBar p {
+  margin: 0.35rem 0 0;
+  color: #b7c6e1;
+}
+
+.turnMeta {
+  font-size: 0.92rem;
+}
+
+.topActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.topActions button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.82rem 1.15rem;
+  font-weight: 800;
+}
+
+.heroAttack {
+  background: linear-gradient(135deg, #ff856f, #ff4a4a);
+  color: #fff6f2;
+}
+
+.endTurn {
+  background: linear-gradient(135deg, #ffd65a, #f39a00);
+  color: #281200;
+}
+
+.restart {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f4f7ff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 1rem;
+}
+
+.mainCol {
+  display: grid;
+  gap: 1rem;
+}
+
+.battleZone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(255, 190, 90, 0.12), rgba(69, 188, 255, 0.1)),
+    rgba(8, 15, 31, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: floatIn 420ms ease both;
+}
+
+.battleZone p {
+  margin: 0.3rem 0 0;
+  color: #b7c6e1;
+}
+
+.matchupHint {
+  font-size: 0.9rem;
+}
+
+.good {
+  color: #81f7a2;
+  font-weight: 700;
+}
+
+.neutral {
+  color: #ffd65a;
+  font-weight: 700;
+}
+
+.bad {
+  color: #ff8f8f;
+  font-weight: 700;
+}
+
+.statusPill,
+.winner {
+  padding: 0.85rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+}
+
+.winner {
+  background: linear-gradient(135deg, #ffd65a, #f39a00);
+  color: #271300;
+  font-weight: 900;
+}
+
+.thinking {
+  animation: thinkingPulse 1s ease-in-out infinite;
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes thinkingPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(107, 194, 255, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 0 10px rgba(107, 194, 255, 0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .topBar,
+  .battleZone {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .topActions {
+    width: 100%;
+  }
+
+  .topActions button {
+    flex: 1 1 180px;
+  }
+}

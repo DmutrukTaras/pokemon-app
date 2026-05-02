@@ -1,0 +1,74 @@
+.page {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 3rem 1.2rem 4rem;
+}
+
+.panel,
+.rules {
+  padding: 2rem;
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(255, 214, 89, 0.12), rgba(51, 161, 255, 0.1)),
+    rgba(6, 12, 24, 0.84);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+}
+
+.kicker {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  color: #ffd86a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+}
+
+.panel h1,
+.rules h2 {
+  margin: 0 0 0.8rem;
+}
+
+.panel p {
+  max-width: 52ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.4rem;
+}
+
+.primary,
+.secondary {
+  padding: 0.9rem 1.35rem;
+  border: none;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.primary {
+  background: linear-gradient(135deg, #ffd75a, #f39b00);
+  color: #211000;
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f4f7ff;
+}
+
+.info {
+  color: #b9d8ff;
+}
+
+.error {
+  color: #ff9c9c;
+}
+
+.rules ul {
+  padding-left: 1.1rem;
+  margin: 0;
+}

@@ -1,0 +1,42 @@
+:root {
+  color-scheme: dark;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+  background:
+    radial-gradient(circle at top, rgba(245, 191, 66, 0.25), transparent 32%),
+    radial-gradient(circle at bottom, rgba(39, 152, 248, 0.2), transparent 28%),
+    linear-gradient(180deg, #102042 0%, #07111f 100%);
+  color: #f3f6ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

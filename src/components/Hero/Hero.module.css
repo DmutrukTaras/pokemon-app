@@ -1,0 +1,37 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1rem 1.1rem;
+  border-radius: 20px;
+  background: rgba(10, 18, 34, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.active {
+  box-shadow: 0 0 0 2px rgba(255, 217, 88, 0.28);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.energy {
+  color: #ffd86a;
+  font-weight: 700;
+}
+
+.barTrack {
+  height: 14px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.barFill {
+  height: 100%;
+  background: linear-gradient(90deg, #ef5350, #ffd54f);
+}

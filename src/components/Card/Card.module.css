@@ -1,0 +1,292 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  width: 168px;
+  min-height: 260px;
+  padding: 0.75rem;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(7, 11, 22, 0.95)),
+    linear-gradient(135deg, rgba(255, 215, 96, 0.22), rgba(64, 145, 255, 0.16));
+  color: #f6f8ff;
+  text-align: left;
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    opacity 140ms ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+  animation: cardAppear 280ms ease both;
+}
+
+.card:hover:not(:disabled) {
+  transform: translateY(-4px);
+  border-color: rgba(255, 209, 82, 0.7);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3);
+}
+
+.selected {
+  border-color: #7ed7ff;
+  box-shadow: 0 0 0 3px rgba(126, 215, 255, 0.26);
+}
+
+.playable {
+  border-color: rgba(117, 255, 166, 0.8);
+}
+
+.canEvolve {
+  box-shadow: 0 0 0 3px rgba(255, 178, 60, 0.2);
+  animation: evolvePulse 1.6s ease-in-out infinite;
+}
+
+.canAttack {
+  outline: 2px solid rgba(255, 112, 112, 0.8);
+  animation: attackPulse 1.2s ease-in-out infinite;
+}
+
+.highlighted {
+  border-color: rgba(255, 112, 112, 0.82);
+}
+
+.highlightAdvantage {
+  border-color: rgba(102, 255, 145, 0.95);
+  box-shadow:
+    0 0 0 3px rgba(102, 255, 145, 0.24),
+    0 12px 30px rgba(0, 0, 0, 0.24);
+}
+
+.highlightNeutral {
+  border-color: rgba(255, 214, 90, 0.95);
+  box-shadow:
+    0 0 0 3px rgba(255, 214, 90, 0.2),
+    0 12px 30px rgba(0, 0, 0, 0.24);
+}
+
+.highlightDisadvantage {
+  border-color: rgba(255, 114, 114, 0.95);
+  box-shadow:
+    0 0 0 3px rgba(255, 114, 114, 0.22),
+    0 12px 30px rgba(0, 0, 0, 0.24);
+}
+
+.disabled {
+  opacity: 0.58;
+}
+
+.entering {
+  animation: cardDrop 380ms cubic-bezier(0.2, 0.8, 0.25, 1) both;
+}
+
+.evolving {
+  animation: evolveFlash 520ms ease;
+}
+
+.attacking {
+  animation: attackLunge 380ms ease;
+}
+
+.takingHit {
+  animation: hitShake 340ms ease;
+}
+
+.badges {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cost,
+.evolutionCost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 14px;
+  color: #241000;
+  font-weight: 800;
+}
+
+.cost {
+  background: linear-gradient(180deg, #ffd85c, #f18f01);
+}
+
+.evolutionCost {
+  background: linear-gradient(180deg, #d592ff, #8e45d5);
+  color: #fff6ff;
+}
+
+.cost small,
+.evolutionCost small {
+  font-size: 0.58rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.imageWrap {
+  display: grid;
+  place-items: center;
+  min-height: 108px;
+  padding: 0.5rem;
+  border-radius: 14px;
+  background: rgba(10, 16, 34, 0.58);
+}
+
+.image {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 2rem;
+}
+
+.header,
+.stats,
+.meta,
+.flags {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.types {
+  min-height: 2.4em;
+  color: #acd8ff;
+  font-size: 0.92rem;
+  text-transform: capitalize;
+}
+
+.stats {
+  font-size: 0.85rem;
+}
+
+.meta {
+  color: #d1defd;
+  font-size: 0.76rem;
+}
+
+.flags {
+  margin-top: auto;
+  color: #ffe6a7;
+  font-size: 0.76rem;
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cardDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.9);
+  }
+
+  65% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.02);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes attackPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 102, 102, 0.16);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(255, 102, 102, 0);
+  }
+}
+
+@keyframes evolvePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(255, 178, 60, 0.18);
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px rgba(255, 178, 60, 0);
+  }
+}
+
+@keyframes evolveFlash {
+  0% {
+    transform: scale(0.94);
+    filter: saturate(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+    filter: saturate(1.45) brightness(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+    filter: saturate(1);
+  }
+}
+
+@keyframes attackLunge {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+
+  45% {
+    transform: translateX(10px) scale(1.03);
+  }
+
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes hitShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-6px);
+  }
+
+  40% {
+    transform: translateX(7px);
+  }
+
+  60% {
+    transform: translateX(-4px);
+  }
+
+  80% {
+    transform: translateX(3px);
+  }
+}
